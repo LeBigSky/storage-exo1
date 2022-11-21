@@ -10,13 +10,19 @@ class ImageController extends Controller
 {
     public function home (){
         $images= Image::all();
+      
         return view('home', compact('images'));
     }
     public function store(Request $request){
         $store= new Image();
         $store->name =$request->name;
+        if($request->has('src')){
         $store->src = $request->file('src')->hashName();
         Storage::put('public/', $request->file('src'));
+        }
+        else{
+         $store->image =$request->image;   
+        }
         $store->save();
         return redirect()->route('admin');
     }

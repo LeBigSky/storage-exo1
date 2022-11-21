@@ -15,7 +15,11 @@
           <tbody>
             @foreach ($images as $image )
                <tr>
-              <td><img src="{{ asset('storage/'.$image->src) }}" width="150px" height="150px" alt=""></td>
+                @if ($image->src == null)
+                <td><img src="{{ $image->image }}" width="150px" height="150px" alt=""></td>
+                @else
+                <td><img src="{{ asset('storage/'.$image->src) }}" width="150px" height="150px" alt=""></td>
+                @endif
               <td>{{ $image->name }}</td>
               <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tempore atque corrupti reprehenderit id provident.</td>
               <form action="delete/{{ $image->id }}" method="POST">
@@ -28,5 +32,5 @@
           </tbody>
         </table>
     </div>
-      
+
   </section>
