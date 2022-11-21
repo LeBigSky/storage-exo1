@@ -9,6 +9,7 @@
               <th scope="col">Image</th>
               <th scope="col">Nom</th>
               <th scope="col">Description</th>
+              <th scope="col">supprimer</th>
             </tr>
           </thead>
           <tbody>
@@ -17,6 +18,11 @@
               <td><img src="{{ asset('storage/'.$image->src) }}" width="150px" height="150px" alt=""></td>
               <td>{{ $image->name }}</td>
               <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tempore atque corrupti reprehenderit id provident.</td>
+              <form action="delete/{{ $image->id }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <td><button type="submit" class="btn btn-danger">Delete</button></a></td>
+              </form>
             </tr>
             @endforeach
           </tbody>

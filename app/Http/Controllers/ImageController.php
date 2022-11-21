@@ -31,6 +31,11 @@ class ImageController extends Controller
     public function show ($id){
         $image= Image::find($id);
         return view('pages.show', compact('image'));
+    }
+    public function delete($id){
+        $image= Image::find($id);
+        $image->delete();
+        return redirect()->route('admin');
 
     }
 }
