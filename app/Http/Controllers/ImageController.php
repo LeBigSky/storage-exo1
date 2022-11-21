@@ -51,13 +51,10 @@ class ImageController extends Controller
     public function update (Request $request, $id){
         $update= Image::find($id);
         $update->name =$request->name;
-        if($request->has('src')){
+        $update->src= $request->src;
         $update->src = $request->file('src')->hashName();
         Storage::put('public/', $request->file('src'));
-        }
-        else{
-         $update->image =$request->image;   
-        }
+        $update->image =$request->image;   
         $update->save();
         return redirect()->route('admin');
     }
