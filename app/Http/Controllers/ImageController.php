@@ -42,6 +42,22 @@ class ImageController extends Controller
         $image= Image::find($id);
         $image->delete();
         return redirect()->route('admin');
-
+    }
+    public function edit($id){
+        $image= Image::find($id);
+        return view('back.pages.edit', compact('image'));
+    }
+    public function update (Request $request, $id){
+        $update= Image::find($id);
+        $update->name =$request->name;
+        if($request->has('src')){
+        $update->src = $request->file('src')->hashName();
+        Storage::put('public/', $request->file('src'));
+        }
+        else{
+         $update->image =$request->image;   
+        }
+        $update->save();
+        return redirect()->route('admin');
     }
 }

@@ -10,6 +10,7 @@
               <th scope="col">Nom</th>
               <th scope="col">Description</th>
               <th scope="col">supprimer</th>
+              <th scope="col">editer</th>
             </tr>
           </thead>
           <tbody>
@@ -27,6 +28,7 @@
               @method('DELETE')
               <td><button type="submit" class="btn btn-danger">Delete</button></a></td>
               </form>
+              <td><a href="edit/{{ $image->id }}"><button class="btn btn-warning">Edit</button></a></a></td>
             </tr>
             @endforeach
           </tbody>
