@@ -40,6 +40,7 @@ class ImageController extends Controller
     }
     public function delete($id){
         $image= Image::find($id);
+        Storage::delete('public/'.$image->src);
         $image->delete();
         return redirect()->route('admin');
     }
