@@ -6,6 +6,7 @@
           <h5 class="card-title">{{ $image->name }}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="show/{{ $image->id }}" class="btn btn-primary">Afficher Image</a>
+          <a href="download/{{ $image->src }}" class="btn btn-primary">DL Image</a>
         </div>
       </div>
 @endforeach

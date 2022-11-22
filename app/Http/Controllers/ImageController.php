@@ -58,4 +58,8 @@ class ImageController extends Controller
         $update->save();
         return redirect()->route('admin');
     }
+   public function download ($name){
+    $path=public_path('storage/'.$name);
+    return response()->download($path);
+   }
 }

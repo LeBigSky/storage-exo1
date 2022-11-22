@@ -22,3 +22,4 @@ Route::get('show/{id}', [ImageController::class, 'show']);
 Route::delete('delete/{id}', [ImageController::class, 'delete']);
 Route::get('edit/{id}', [ImageController::class, 'edit']);
 Route::post('update/{id}', [ImageController::class, 'update']);
+Route::get('download/{name}', [ImageController::class, 'download']);
